@@ -20,7 +20,7 @@ export const FilterField = (props) => {
             options={regions}
             getOptionLabel={option => option}
             classes={{ root: classes.root }}
-            onInputChange={props.handleInputChange}
+            onInputChange={props.handleFilter}
             renderInput={params => <TextField {...params} label="Filter by Region" variant="outlined" />}
         />
     )

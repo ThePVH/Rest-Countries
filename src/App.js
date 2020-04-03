@@ -26,6 +26,8 @@ const useStyle = makeStyles({
   }
 })
 
+// Styling - move to another component
+
 const getBackground = style('mode', {
   light: 'hsl(0, 0%, 98%)',
   dark: 'hsl(207, 26%, 17%)'
@@ -76,6 +78,7 @@ a, .MuiInputLabel-outlined, .MuiFormLabel-root.Mui-focused, .MuiInputLabel-outli
   box-shadow: 0 0 10px 0 ${getShadow};
 }
 `
+// Saving Theme - to another component
 
 function getInitialTheme() {
   const savedTheme = storage.getItem('theme');
@@ -91,6 +94,7 @@ function App() {
   const [theme, setTheme] = useState(getInitialTheme);
   const BASE_URL = 'https://restcountries.eu/rest/v2/all';
 
+  // Fetching Data from RestCountries
   async function fetchData() {
     const res = await fetch(BASE_URL);
     res
@@ -102,22 +106,27 @@ function App() {
     fetchData();
   }, [])
 
+  // Saving theme when theme is changed.
   useEffect(() => {
     storage.setItem('theme', JSON.stringify(theme))
   }, [theme])
 
+  // Handle Search Field input
   const handleInput = (event) => {
     setQuery(event.target.value.toLowerCase());
   }
 
-  const handleInputChange = (e) => {
+  // Handle Filter
+  const handleFilter = (e) => {
     setFilterRegion(e.target.innerText);
   }
 
+  // Handle Dark Mode
   const handleMode = () => {
     setTheme(theme.mode === 'dark' ? { mode: 'light' } : { mode: 'dark' });
   }
 
+  // Handle Filter with Input together
   const filterFinal = () => {
     if (filterRegion && query) {
       return data.filter(country => country.region === filterRegion).filter(country => country.name.toLowerCase().includes(query));
@@ -143,7 +152,7 @@ function App() {
               <Route exact path="/">
                 <Toolbar classes={{ root: styles.root }}>
                   <SearchField handleInput={handleInput} />
-                  <FilterField handleInputChange={handleInputChange} />
+                  <FilterField handleFilter={handleFilter} />
                 </Toolbar>
                 <div className="cardsApp">
                   {filterFinal(data).map((info) => (
