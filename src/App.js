@@ -52,12 +52,13 @@ body {
   color: ${getText};
 }
 
-a {
+.cards, .makeStyles-root-2, .MuiAutocomplete-inputRoot {
+  background-color: ${getElements};
   color: ${getText};
 }
 
-.cards {
-  background-color: ${getElements};
+a, .MuiInputLabel-outlined, .MuiFormLabel-root.Mui-focused, .MuiInputLabel-outlined {
+  color: ${getText};
 }
 
 .cardList button {
