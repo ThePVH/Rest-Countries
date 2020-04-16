@@ -149,7 +149,7 @@ function App() {
           <div className="App">
             <AppBarComponent handleMode={handleMode} />
             <Switch>
-              <Route exact path="/">
+              <Route exact path="/Rest-Countries/">
                 <Toolbar classes={{ root: styles.root }}>
                   <SearchField handleInput={handleInput} />
                   <FilterField handleFilter={handleFilter} />
@@ -170,7 +170,7 @@ function App() {
                 </div>
               </Route>
               {data && (
-                <Route path="/:infoName" render={({ match }) => (
+                <Route path="/Rest-Countries/:infoName" render={({ match }) => (
                   <Card {...data.find(info => info.alpha3Code === match.params.infoName)} />
                 )} />
               )}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export const Cards = (props) => {
     return (
         <div className='cards'>
-            <Link to={`${props.alpha3Code}`}>
+            <Link to={`/Rest-Countries/${props.alpha3Code}`}>
                 <img src={props.img} alt="Country Flag" />
                 <div className='cards-info'>
                     <h2>{props.name}</h2>

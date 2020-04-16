@@ -5,7 +5,7 @@ export const Card = ({ name, flag, nativeName, population, region, subregion, ca
 
     return (
         <div className="cardList">
-            <Link to="/"><button className="backBtn">Back</button></Link>
+            <Link to="/Rest-Countries"><button className="backBtn">Back</button></Link>
             <div className="card">
                 <div className="flag">
                     <img src={flag} alt="flag" style={{ maxWidth: '500px' }} />
