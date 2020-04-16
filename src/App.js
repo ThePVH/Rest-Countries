@@ -54,7 +54,7 @@ body {
   color: ${getText};
 }
 
-.cards, .makeStyles-root-2, .MuiAutocomplete-inputRoot {
+.cards, .MuiAppBar-colorPrimary{
   background-color: ${getElements};
   color: ${getText};
 }
@@ -147,7 +147,7 @@ function App() {
         <GlobalStyles />
         <Router>
           <div className="App">
-            <AppBarComponent handleMode={handleMode} />
+            <AppBarComponent handleMode={handleMode} text={theme.mode} />
             <Switch>
               <Route exact path="/Rest-Countries/">
                 <Toolbar classes={{ root: styles.root }}>
